@@ -1,21 +1,21 @@
 <header class="mb-5">
     <div class="header-top">
         <div class="container">
-            <div class="logo text-primary">
-                <h3>Peduli Diri</h3>
-            </div>
+            <a href="/" class="logo">
+                <img src="{{ asset('assets/images/logo/logo.png') }}" style="width: 20%" alt="Logo">
+            </a>
             <div class="header-top-right">
 
                 <div class="dropdown">
                     <a href="#" class="user-dropdown d-flex dropend" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="avatar avatar-md2" >
-                            <img src="assets/images/faces/1.jpg" alt="Avatar">
+                            <img src="https://ui-avatars.com/api/?background=F1A501&color=FFF&bold=true&name={{ Auth::user()->name }}" alt="Avatar">
                         </div>
                         <div class="text my-auto">
                             <h6 class="user-dropdown-name">{{ Auth::user()->name }}</h6>
                         </div>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="dropdownMenuButton1">
+                    <ul class="dropdown-menu dropdown-menu-end shadow-lg text-center" aria-labelledby="dropdownMenuButton1">
                       <!-- <li><a class="dropdown-item" href="#">My Account</a></li>
                       <li><a class="dropdown-item" href="#">Settings</a></li>
                       <li><hr class="dropdown-divider"></li> -->
@@ -58,7 +58,7 @@
 
                 <li
                     class="menu-item">
-                    <a href="{{ route('travel-history') }}" class='menu-link'>
+                    <a href="{{ route('travel-history.index') }}" class='menu-link'>
                         <i class="bi bi-clock-history"></i>
                         <span>History Travel</span>
                     </a>

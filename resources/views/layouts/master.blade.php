@@ -25,6 +25,8 @@
             @include('includes.footer')
         </div>
     </div>
+    @include('sweetalert::alert')
+
     @stack('prepend-script')
     @include('includes.script')
     @stack('addon-script')

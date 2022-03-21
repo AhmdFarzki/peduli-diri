@@ -15,14 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/travel-history', [HistoryTravelController::class, 'index'])->name('travel-history');
-Route::get('/tambah-catatan', [HistoryTravelController::class, 'create'])->name('tambah-catatan');
-Route::post('/simpan-catatan', [HistoryTravelController::class, 'store'])->name('simpan-catatan');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('/travel-history', HistoryTravelController::class);
+});
